@@ -15,15 +15,39 @@ const focoInitValue = 1500
 const descansoCurtoInitValue = 300
 const descansoLongoInitValue = 900
 
+//uso de template literal/ swing
+function handleChange(mode) {
+    html.setAttribute('data-contexto', mode)
+    banner.setAttribute('src', `imagens/${mode}.png`)
+
+    switch (mode) {
+        case 'foco':
+            titulo.innerHTML = `Otimize sua produtividade,<br><strong class="app__title-strong">mergulhe no que importa.</strong>`
+            break;
+        case 'descanso-curto':
+            titulo.innerHTML = `Que tal dar uma respirada?<br><strong class="app__title-strong">Faça uma pausa curta.</strong>`
+            break;
+        case 'descanso-longo':
+            titulo.innerHTML = `Hora de voltar à superfície.<br><strong class="app__title-strong">Faça uma pausa longa.</strong>`
+            break;
+        default:
+            break;
+    }
+
+}
 
 focoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco')
+    handleChange('foco')
 })
 
 curtoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-curto')
+    handleChange('descanso-curto')
 })
 
 longoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-longo')
+    handleChange('descanso-longo')
 })
+
+
+
+
